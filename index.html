@@ -28,68 +28,56 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        /* Базовые стили для навигации */
         .navbar {
-    background: rgba(33, 37, 41, 0.95);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    padding: 1rem 0;
-}
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.9);
+        }
 
-.navbar.scrolled {
-    padding: 0.5rem 0;
-    background: rgba(33, 37, 41, 0.98);
-}
+        /* Стили для скролла */
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-brand {
-    font-size: 1.25rem;
-}
+        /* Стили для навигации */
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
 
-.brand-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, var(--primary-color), var(--bs-purple));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.25rem;
-}
+        .navbar .nav-link:hover {
+            color: #fff;
+        }
 
-.nav-link {
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-radius: 6px;
-}
+        .navbar .nav-link.btn {
+            color: #fff;
+            font-weight: 500;
+        }
 
-.nav-link:not(.btn):hover {
-    color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.1);
-}
+        /* Стили для мобильного меню */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(0, 0, 0, 0.95);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                margin-top: 0.5rem;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 0.75rem 1rem !important;
+                text-align: center;
+            }
+            
+            .navbar-nav .nav-link.btn {
+                margin-top: 0.5rem;
+                display: block;
+            }
+        }
 
-.navbar-nav .btn {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background: rgba(33, 37, 41, 0.98);
-        padding: 1rem;
-        border-radius: 1rem;
-        margin-top: 1rem;
-    }
-    
-    .nav-item {
-        margin-bottom: 0.5rem;
-    }
-    
-    .navbar-nav .btn {
-        width: 100%;
-        margin-top: 0.5rem;
-    }
-}
-        
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -102,14 +90,118 @@
             overflow-x: hidden;
         }
         
+        /* Общие стили для hero секции */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544281679-b6664cf76b8f?q=80&w=1740') no-repeat center center;
-            background-size: cover;
-            color: white;
-            padding: 100px 0;
-            min-height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        /* Десктопная версия */
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-box {
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+        }
+
+        /* Мобильная версия */
+        .mobile-hero-title {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+
+        .mobile-hero-subtitle {
+            font-size: 1rem;
+        }
+
+        .mobile-feature-box {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mobile-feature-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-feature-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(13, 110, 253, 0.1);
             display: flex;
             align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .mobile-feature-content {
+            text-align: left;
+        }
+
+        /* Медиа-запросы для дополнительной настройки */
+        @media (max-width: 767.98px) {
+            .hero {
+                padding-top: 80px; /* Учитываем высоту навбара */
+            }
+            
+            .btn-lg {
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .feature-box {
+                padding: 1.25rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
         }
         
         .section-heading {
@@ -127,18 +219,6 @@
             width: 80px;
             height: 3px;
             background-color: var(--primary-color);
-        }
-        
-        .feature-box {
-            padding: 30px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .module-card {
@@ -343,118 +423,69 @@
 </head>
 <body>
         <!-- Навигация -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <!-- Логотип -->
-                <a class="navbar-brand d-flex align-items-center" href="#home">
-                    <div class="brand-icon me-2">
-                        <i class="bi bi-cpu-fill"></i>
-                    </div>
-                    <div class="brand-text">
-                        <span class="fw-bold">ArduinoMaster</span>
-                        <span class="text-primary">Курсы</span>
-                    </div>
-                </a>
-    
-                <!-- Кнопка мобильного меню -->
-                <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-    
-                <!-- Меню -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="#modules">
-                                <i class="bi bi-book me-1"></i>
-                                Программа
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="#gallery">
-                                <i class="bi bi-grid me-1"></i>
-                                Проекты
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="#features">
-                                <i class="bi bi-star me-1"></i>
-                                Преимущества
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-3" href="#pricing">
-                                <i class="bi bi-tag me-1"></i>
-                                Стоимость
-                            </a>
-                        </li>
-                        <li class="nav-item ms-lg-3">
-                            <a class="nav-link btn btn-primary px-4" href="#contact">
-                                <i class="bi bi-envelope me-1"></i>
-                                Записаться
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <!-- Логотип -->
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+            <div class="brand-icon me-2">
+                <i class="bi bi-cpu-fill"></i>
             </div>
-        </nav>
-
-    <!-- Hero секция -->
-    <section id="home" class="hero vh-100 position-relative overflow-hidden d-flex align-items-center">
-        <!-- Анимированный фоновый паттерн -->
-        <div class="position-absolute w-100 h-100 top-0 start-0" style="background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2960') no-repeat center center; background-size: cover;">
-            <div class="position-absolute top-50 start-0 translate-middle-y d-none d-lg-block">
-                <div class="circuit-pattern"></div>
+            <div class="brand-text">
+                <span class="fw-bold">ArduinoMaster</span>
+                <span class="text-primary">Курсы</span>
             </div>
-        </div>
+        </a>
 
-        <div class="container position-relative">
-            <!-- Мобильная версия -->
-            <div class="d-lg-none">
-                <div class="text-center mb-4">
-                    <span class="badge bg-warning bg-opacity-25 text-warning px-3 py-2 rounded-pill">
-                        <i class="bi bi-clock-fill me-1"></i>
-                        Скоро набор
-                    </span>
-                </div>
-                
-                <h1 class="display-4 fw-bold text-white text-center mb-3">
-                    Создай свой <span class="text-primary">умный дом</span> 
-                    на Arduino
-                </h1>
-                
-                <h2 class="h4 text-white-50 fw-light text-center mb-4">
-                    Научись собирать крутые электронные устройства 
-                    и программировать их
-                </h2>
-                
-                <div class="d-flex justify-content-center mb-5">
-                    <a href="#contact" class="btn btn-primary btn-lg px-4 py-3 d-inline-flex align-items-center">
-                        Хочу на курс
-                        <i class="bi bi-arrow-right ms-2"></i>
+        <!-- Кнопка мобильного меню -->
+        <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Меню -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link px-3" href="#modules">
+                        <i class="bi bi-book me-1 d-none d-lg-inline"></i>
+                        <span class="nav-text">Программа</span>
                     </a>
-                </div>
-
-                <div class="row g-3 text-center text-white mb-4">
-                    <div class="col-4">
-                        <div class="h4 mb-0">10+</div>
-                        <small class="text-white-50">устройств</small>
-                    </div>
-                    <div class="col-4">
-                        <div class="h4 mb-0">8-16</div>
-                        <small class="text-white-50">лет</small>
-                    </div>
-                    <div class="col-4">
-                        <div class="h4 mb-0">2</div>
-                        <small class="text-white-50">часа в неделю</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Десктопная версия -->
-            <div class="row align-items-center d-none d-lg-flex">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" href="#projects">
+                        <i class="bi bi-grid me-1 d-none d-lg-inline"></i>
+                        <span class="nav-text">Проекты</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" href="#features">
+                        <i class="bi bi-star me-1 d-none d-lg-inline"></i>
+                        <span class="nav-text">Преимущества</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" href="#pricing">
+                        <i class="bi bi-tag me-1 d-none d-lg-inline"></i>
+                        <span class="nav-text">Стоимость</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <a class="nav-link btn btn-primary px-4" href="#contact">
+                        <i class="bi bi-envelope me-1 d-none d-lg-inline"></i>
+                        <span class="nav-text">Записаться</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Hero секция -->
+    <section id="home" class="hero min-vh-100 d-flex align-items-center position-relative">
+        <div class="position-absolute w-100 h-100 top-0 start-0" style="background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2960') no-repeat center center; background-size: cover;"></div>
+        
+        <!-- Десктопная версия -->
+        <div class="container position-relative py-5 d-none d-md-block">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8 text-center">
                     <div class="mb-4">
                         <span class="badge bg-warning bg-opacity-25 text-warning px-3 py-2 rounded-pill">
                             <i class="bi bi-clock-fill me-1"></i>
@@ -462,41 +493,41 @@
                         </span>
                     </div>
                     
-                    <h1 class="display-2 fw-bold text-white mb-4">
-                        Создай свой <span class="text-primary">умный дом</span><br>
-                        на Arduino
+                    <h1 class="hero-title fw-bold text-white mb-3">
+                        Создай свой <span class="text-primary">умный</span><br>
+                        <span class="text-primary">дом</span> на Arduino
                     </h1>
                     
-                    <h2 class="h3 text-white-50 fw-light mb-5">
-                        Онлайн-курс для детей 8-16 лет, где каждый научится<br>
+                    <p class="hero-subtitle text-white-50 mb-5">
+                        Онлайн-курс для детей 8-16 лет, где каждый научится
                         собирать крутые электронные устройства и программировать их
-                    </h2>
+                    </p>
                     
                     <div class="row justify-content-center mb-5">
-                        <div class="col-md-10">
-                            <div class="row g-4">
+                        <div class="col-md-12">
+                            <div class="row g-4 justify-content-center">
                                 <div class="col-md-4">
-                                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100">
+                                    <div class="feature-box h-100">
                                         <div class="text-primary mb-3">
-                                            <i class="bi bi-tools" style="font-size: 2.5rem;"></i>
+                                            <i class="bi bi-tools feature-icon"></i>
                                         </div>
                                         <h3 class="h5 text-white">Практика с первого занятия</h3>
                                         <p class="text-white-50 mb-0">Сразу начнёшь собирать настоящие устройства</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100">
+                                    <div class="feature-box h-100">
                                         <div class="text-primary mb-3">
-                                            <i class="bi bi-lightning" style="font-size: 2.5rem;"></i>
+                                            <i class="bi bi-lightning feature-icon"></i>
                                         </div>
                                         <h3 class="h5 text-white">10+ крутых проектов</h3>
                                         <p class="text-white-50 mb-0">Соберёшь умные устройства для своего дома</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="p-4 bg-dark bg-opacity-50 rounded-3 h-100">
+                                    <div class="feature-box h-100">
                                         <div class="text-primary mb-3">
-                                            <i class="bi bi-headset" style="font-size: 2.5rem;"></i>
+                                            <i class="bi bi-headset feature-icon"></i>
                                         </div>
                                         <h3 class="h5 text-white">Поддержка наставника</h3>
                                         <p class="text-white-50 mb-0">Опытный преподаватель всегда поможет</p>
@@ -507,31 +538,80 @@
                     </div>
                     
                     <div class="d-flex justify-content-center gap-3">
-                        <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 d-inline-flex align-items-center">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4 py-3">
                             Хочу на курс
                             <i class="bi bi-arrow-right ms-2"></i>
                         </a>
-                        <a href="#modules" class="btn btn-outline-light btn-lg px-5 py-3">
+                        <a href="#modules" class="btn btn-outline-light btn-lg px-4 py-3">
                             Что будем делать
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Видео для мобильных устройств (отображается ниже hero-секции) -->
-        <div class="d-lg-none position-relative mt-4">
-            <div class="container">
-                <div class="card bg-dark bg-opacity-50 border-0 shadow-lg overflow-hidden">
-                    <div class="card-body p-0">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    title="Презентация курса" 
-                                    allowfullscreen 
-                                    class="rounded-3">
-                            </iframe>
+        
+        <!-- Мобильная версия -->
+        <div class="container position-relative py-4 d-block d-md-none">
+            <div class="text-center">
+                <div class="mb-3">
+                    <span class="badge bg-warning bg-opacity-25 text-warning px-3 py-2 rounded-pill">
+                        <i class="bi bi-clock-fill me-1"></i>
+                        Скоро набор
+                    </span>
+                </div>
+                
+                <h1 class="mobile-hero-title fw-bold text-white mb-3">
+                    Создай свой <span class="text-primary">умный дом</span> на Arduino
+                </h1>
+                
+                <p class="mobile-hero-subtitle text-white-50 mb-4">
+                    Онлайн-курс для детей 8-16 лет, где каждый научится собирать крутые электронные устройства
+                </p>
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-12">
+                        <div class="mobile-feature-box">
+                            <div class="mobile-feature-icon text-primary">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <div class="mobile-feature-content">
+                                <h3 class="h6 text-white mb-1">Практика с первого занятия</h3>
+                                <p class="text-white-50 mb-0 small">Сразу начнёшь собирать настоящие устройства</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="mobile-feature-box">
+                            <div class="mobile-feature-icon text-primary">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                            <div class="mobile-feature-content">
+                                <h3 class="h6 text-white mb-1">10+ крутых проектов</h3>
+                                <p class="text-white-50 mb-0 small">Соберёшь умные устройства для своего дома</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-feature-box">
+                            <div class="mobile-feature-icon text-primary">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <div class="mobile-feature-content">
+                                <h3 class="h6 text-white mb-1">Поддержка наставника</h3>
+                                <p class="text-white-50 mb-0 small">Опытный преподаватель всегда поможет</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <a href="#contact" class="btn btn-primary btn-lg py-3">
+                        Хочу на курс
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                    <a href="#modules" class="btn btn-outline-light btn-lg py-3">
+                        Что будем делать
+                    </a>
                 </div>
             </div>
         </div>
@@ -1566,4 +1646,5 @@
         </div>
     </div>
 </body>
+</html> 
 </html> 
